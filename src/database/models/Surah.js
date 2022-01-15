@@ -12,7 +12,9 @@ const surahSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
-    }
+    },
+    count: String,
+    place: String
 });
 
 const Surah = mongoose.model('Surah', surahSchema);

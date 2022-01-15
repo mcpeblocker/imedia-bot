@@ -17,6 +17,26 @@ const adminNewNasheed = new WizardScene(
             return ctx.scene.reenter();
         }
         ctx.wizard.state.name = name;
+        let text = "1️⃣ Oyatlar sonini kiriting";
+        ctx.reply(text);
+        return ctx.wizard.next();
+    },
+    (ctx) => {
+        let count = ctx.message?.text;
+        if (!count) {
+            return ctx.reply("❗️ Iltimos, to'g'ri ma'lumot kiriting");
+        }
+        ctx.wizard.state.count = count;
+        let text = "🌎 Nozil bo'lgan joyni kiriting";
+        ctx.reply(text);
+        return ctx.wizard.next();
+    },
+    (ctx) => {
+        let place = ctx.message?.text;
+        if (!place) {
+            return ctx.reply("❗️ Iltimos, to'g'ri ma'lumot kiriting");
+        }
+        ctx.wizard.state.place = place;
         let text = "📁 Su'rani musiqa fayl ko'rinishda yuklang.";
         ctx.reply(text);
         return ctx.wizard.next();

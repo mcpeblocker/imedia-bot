@@ -24,10 +24,12 @@ surahScene.hears("◀️ Ortga", ctx => ctx.scene.enter('surahs'));
 
 surahScene.on('text', async ctx => {
     let name = ctx.message?.text;
-    const surahs = await db.controllers.surahs.getByAuthor(ctx.scene.state.id);
+    let authorId = ctx.scene.state.id;
+    const surahs = await db.controllers.surahs.getByAuthor(authorId);
     let surah = surahs?.find(m => m.name === name);
     if (!surah) return;
-    let caption = `${name}\n\n@${ctx.botInfo.username}`;
+    const author = await db.controllers.authors.getById(authorId);
+    let caption = `<b>${name}</b>\nQori: <b>${author.name}</b>\nOyatlar soni: <b>${surah.count}</b>\nNozil bo'lgan joyi: <b>${surah.place}</b>\n\n@${ctx.botInfo.username}`;
     ctx.replyWithAudio(surah.fileId, { caption });
 });
 
