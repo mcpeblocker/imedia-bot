@@ -30,7 +30,7 @@ surahScene.on('text', async ctx => {
     if (!surah) return;
     const author = await db.controllers.authors.getById(authorId);
     let caption = `<b>${name}</b>\nQori: <b>${author.name}</b>\nOyatlar soni: <b>${surah.count}</b>\nNozil bo'lgan joyi: <b>${surah.place}</b>\n\n@${ctx.botInfo.username}`;
-    ctx.replyWithAudio(surah.fileId, { caption });
+    ctx.replyWithAudio(surah.fileId, { caption, parse_mode: 'HTML' });
 });
 
 module.exports = surahScene;
