@@ -1,0 +1,23 @@
+{
+  "name": "imedia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "mcpeblocker",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "mongoose": "^6.1.6",
+    "telegraf": "^4.5.2",
+    "telegraf-session-redis": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
