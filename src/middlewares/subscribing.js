@@ -1,9 +1,9 @@
 const db = require("../database");
 const keyboards = require('../utils/keyboards');
-const configs  = require('../utils/configs');
+const config  = require('../utils/config');
 
 module.exports = async (ctx, next) => {
-    if (configs.ADMINS.some(admin => admin == ctx.from.id)) {
+    if (config.ADMINS.some(admin => admin == ctx.from.id)) {
         return next();
     }
     if (ctx.callbackQuery?.data === "checkSubscribing") {
