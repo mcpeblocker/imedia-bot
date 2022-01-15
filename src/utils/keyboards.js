@@ -38,6 +38,10 @@ exports.admin = () => Markup.keyboard([
     ["◀️ Paneldan chiqish"]
 ]).resize();
 
+exports.statistics = () => Markup.keyboard([
+    ["✍️ Umumiy xabar"],
+    ["◀️ Ortga"]
+]).resize();
 
 exports.channels = () => Markup.keyboard([
     "➕ Kanal qo'shish",

@@ -24,6 +24,11 @@ bot.command('admin', isAdmin, ctx => ctx.scene.enter('admin'));
 //     await ctx.deleteMessage();
 // });
 
+bot.command('flush', isAdmin, (ctx) => {
+    ctx.session = null
+    ctx.reply("✅ Session tozalandi");
+})
+
 bot.catch((err, ctx) => {
     if (isProduction()) return;
     console.log(err);

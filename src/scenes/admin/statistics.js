@@ -33,11 +33,12 @@ statisticsScene.enter(async (ctx) => {
     text += bold("\n🎶 Su'ralar soni: ") + surahs;
     text += bold("\n\n📡 Kanallar soni: ") + channels;
 
-    let keyboard = keyboards.back();
+    let keyboard = keyboards.statistics();
     ctx.replyWithHTML(text, keyboard);
 });
 
 statisticsScene.hears("◀️ Ortga", ctx => ctx.scene.enter('admin'));
+statisticsScene.hears("✍️ Umumiy xabar", ctx => ctx.scene.enter('admin:commonMsg'));
 
 module.exports = statisticsScene;
 
