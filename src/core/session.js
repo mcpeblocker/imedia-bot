@@ -16,7 +16,7 @@ if (config.SESSION_TYPE === 'redis') {
         }
     });;
 } else {
-    session = memorySession;
+    session = memorySession();
 }
 
 module.exports = session;
