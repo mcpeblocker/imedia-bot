@@ -8,8 +8,10 @@ const isAdmin = require('./middlewares/isAdmin');
 const { isProduction } = require('./utils');
 const auth = require('./middlewares/auth');
 const subscribing = require('./middlewares/subscribing');
+const config = require('./utils/config');
 
-bot.use(session);
+bot.use(session());
+bot.use((ctx, next) => { if (!ctx.session) { ctx.session = {}; }; next()});
 bot.use(auth);
 
 bot.use(subscribing);
@@ -20,13 +22,15 @@ bot.start(ctx => ctx.scene.enter('start'));
 
 bot.command('admin', isAdmin, ctx => ctx.scene.enter('admin'));
 
+bot.on('message', ctx => ctx.scene.enter('start'));
+
 // bot.action("checkSubscribing", async (ctx) => {
 //     await ctx.deleteMessage();
 // });
 
 bot.command('flush', isAdmin, (ctx) => {
     ctx.session = null
-    ctx.reply("✅ Session tozalandi");
+    ctx.reply("✅");
 })
 
 bot.catch((err, ctx) => {

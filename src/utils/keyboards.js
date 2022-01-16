@@ -77,10 +77,13 @@ exports.movies = (data, isAdmin = true) => {
             [Markup.button.text("➕ Qism qo'shish")]
         );
     }
+    let row = [];
     for (let i = 0; i < data.length; i++) {
-        keyboard.push(
-            [Markup.button.text(data[i].name)]
-        );
+        row.push(Markup.button.text(data[i].name));
+        if ((i+1) % 3 === 0 || i + 1 === data.length) {
+            keyboard.push(row);
+            row = [];
+        }
     };
     if (isAdmin) {
         keyboard.push([Markup.button.text("❌ Filmni o'chirish")]);
@@ -102,10 +105,13 @@ exports.authors = (data, isAdmin = true) => {
             [Markup.button.text("➕ Avtor qo'shish")]
         );
     }
+    let row = [];
     for (let i = 0; i < data.length; i++) {
-        keyboard.push(
-            [Markup.button.text(data[i].name)]
-        );
+        row.push(Markup.button.text(data[i].name));
+        if ((i+1) % 3 === 0 || i + 1 === data.length) {
+            keyboard.push(row);
+            row = [];
+        }
     };
     keyboard.push([Markup.button.text("◀️ Ortga")]);
     return Markup.keyboard(keyboard).resize();
