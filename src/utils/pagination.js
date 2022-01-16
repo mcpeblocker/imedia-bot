@@ -5,7 +5,7 @@ const db = require('../database');
 const getText = (
     data = [],
     page = 1,
-    pageSize = 10,
+    pageSize = 15,
     formatFn = (item, index) => `${index + 1}. ${item.name || item}`,
     headerFn = (currentPage, pageSize, total) => `Natijalar ${(currentPage - 1) * pageSize + 1}-${currentPage * pageSize}. Jami ${total}`
 ) => {
@@ -20,7 +20,7 @@ const getText = (
 const getKeyboard = (
     data = [],
     page = 1,
-    pageSize = 10
+    pageSize = 15
 ) => {
     const items = getCurrentData(data, page, pageSize);
 
@@ -50,7 +50,7 @@ const handleActions = (scene, getData, onItem) => {
         let page = ctx.match[1];
         let id = ctx.match[2];
         let data = await getData(ctx);
-        let items = getCurrentData(data, page, 10);
+        let items = getCurrentData(data, page, 15);
         let item = items[id];
         onItem(ctx, item);
     });
@@ -60,7 +60,7 @@ const handleActions = (scene, getData, onItem) => {
             return ctx.answerCbQuery('❗️ Bu birinchi sahifa');
         }
         const data = await getData(ctx);
-        if ((page-1) * 10 > data.length) {
+        if ((page-1) * 15 > data.length) {
             return ctx.answerCbQuery('❗️ Bu oxirgi sahifa');
         }
         await ctx.deleteMessage();
