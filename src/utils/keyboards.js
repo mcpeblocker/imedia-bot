@@ -139,7 +139,7 @@ exports.surahs = (data, isAdmin = true) => {
     let keyboard = [];
     if (isAdmin) {
         keyboard.push(
-            [Markup.button.text("➕ Su'ra qo'shish")]
+            [Markup.button.text("➕ Sura qo'shish")]
         );
         for (let i = 0; i < data.length; i++) {
             keyboard.push(
@@ -153,6 +153,6 @@ exports.surahs = (data, isAdmin = true) => {
 };
 
 exports.surah = () => Markup.keyboard([
-    [Markup.button.text("❌ Su'rani o'chirish")],
+    [Markup.button.text("❌ Surani o'chirish")],
     [Markup.button.text("◀️ Ortga")]
 ]).resize();
