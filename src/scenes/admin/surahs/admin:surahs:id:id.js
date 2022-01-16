@@ -17,9 +17,9 @@ adminSurahScene.enter(async ctx => {
     ctx.replyWithAudio(surah.fileId, { caption, ...keyboard });
 });
 
-adminSurahScene.hears("❌ Su'rani o'chirish", async (ctx) => {
+adminSurahScene.hears("❌ Surani o'chirish", async (ctx) => {
     await db.controllers.surahs.deleteById(ctx.scene.state.surahId);
-    ctx.reply("✅ Nashida o'chirildi!");
+    ctx.reply("✅ Sura o'chirildi!");
     ctx.scene.enter('admin:surahs:id', { id: ctx.scene.state.authorId });
 });
 

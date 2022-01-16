@@ -118,13 +118,11 @@ exports.nasheeds = (data, isAdmin = true) => {
         keyboard.push(
             [Markup.button.text("➕ Nashida qo'shish")]
         );
-    }
-    for (let i = 0; i < data.length; i++) {
-        keyboard.push(
-            [Markup.button.text(data[i].name)]
-        );
-    };
-    if (isAdmin) {
+        for (let i = 0; i < data.length; i++) {
+            keyboard.push(
+                [Markup.button.text(data[i].name)]
+            );
+        };
         keyboard.push([Markup.button.text("❌ Avtorni o'chirish")]);
     }
     keyboard.push([Markup.button.text("◀️ Ortga")]);
@@ -143,13 +141,11 @@ exports.surahs = (data, isAdmin = true) => {
         keyboard.push(
             [Markup.button.text("➕ Su'ra qo'shish")]
         );
-    }
-    for (let i = 0; i < data.length; i++) {
-        keyboard.push(
-            [Markup.button.text(data[i].name)]
-        );
-    };
-    if (isAdmin) {
+        for (let i = 0; i < data.length; i++) {
+            keyboard.push(
+                [Markup.button.text(data[i].name)]
+            );
+        };
         keyboard.push([Markup.button.text("❌ Avtorni o'chirish")]);
     }
     keyboard.push([Markup.button.text("◀️ Ortga")]);

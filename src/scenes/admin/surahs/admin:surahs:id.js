@@ -20,7 +20,7 @@ adminSurahsScene.enter(async ctx => {
 
 });
 
-adminSurahsScene.hears("➕ Su'ra qo'shish", ctx => ctx.scene.enter('admin:surahs:id:new', { authorId: ctx.scene.state.id }));
+adminSurahsScene.hears("➕ Sura qo'shish", ctx => ctx.scene.enter('admin:surahs:id:new', { authorId: ctx.scene.state.id }));
 
 adminSurahsScene.hears("❌ Avtorni o'chirish", async (ctx) => {
     await db.controllers.authors.deleteById(ctx.scene.state.id);

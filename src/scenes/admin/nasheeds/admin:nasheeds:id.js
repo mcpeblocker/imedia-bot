@@ -17,7 +17,6 @@ adminNasheedsScene.enter(async ctx => {
     const nasheeds = await db.controllers.nasheeds.getByAuthor(id);
     let keyboard = keyboards.nasheeds(nasheeds);
     ctx.reply(text, keyboard);
-
 });
 
 adminNasheedsScene.hears("➕ Nashida qo'shish", ctx => ctx.scene.enter('admin:nasheeds:id:new', { authorId: ctx.scene.state.id }));

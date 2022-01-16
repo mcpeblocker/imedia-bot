@@ -6,7 +6,7 @@ const adminNewNasheed = new WizardScene(
     'admin:surahs:id:new',
     (ctx) => {
         ctx.wizard.state.author = ctx.scene.state.authorId;
-        let text = "✍️ Yangi su'ra uchun nom kiriting";
+        let text = "✍️ Yangi sura uchun nom kiriting";
         let keyboard = keyboards.cancel();
         ctx.reply(text, keyboard);
         return ctx.wizard.next();
@@ -37,7 +37,7 @@ const adminNewNasheed = new WizardScene(
             return ctx.reply("❗️ Iltimos, to'g'ri ma'lumot kiriting");
         }
         ctx.wizard.state.place = place;
-        let text = "📁 Su'rani musiqa fayl ko'rinishda yuklang.";
+        let text = "📁 Surani musiqa fayl ko'rinishda yuklang.";
         ctx.reply(text);
         return ctx.wizard.next();
     },
@@ -49,7 +49,7 @@ const adminNewNasheed = new WizardScene(
         }
         ctx.wizard.state.fileId = audio.file_id;
         await db.controllers.surahs.create(ctx.wizard.state);
-        let text = "✅ Nashida yuklandi.";
+        let text = "✅ Sura yuklandi.";
         ctx.reply(text);
         return ctx.scene.enter('admin:surahs:id', { id: ctx.scene.state.authorId });
     }
